@@ -1,16 +1,16 @@
 <template>
   <div class="screenWrap" ref="screenWrap">
-    <home />
+    <screenHeader></screenHeader>
   </div>
 </template>
 
 <script>
 import {pageWidth,pageHeight,deviceHeight}  from '../util'
-import home from '@/components/home'
+import screenHeader from '@/components/screenHeader' 
 export default {
   name: 'ScreenWrap',
   components:{
-    home
+    screenHeader
   },
   mounted(){
     this.$refs.screenWrap.style.width = pageWidth +'px' 
@@ -24,6 +24,6 @@ export default {
 <style scoped lang="scss">
   .screenWrap{
     margin:0 auto;
-    background-color: #bfa;
+
   }
 </style>
