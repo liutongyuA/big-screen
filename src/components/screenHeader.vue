@@ -23,8 +23,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-  border: 1px solid red;
-
+    border: 1px solid red;
     >span{
       color: white;
       font-size: 1.87rem;
