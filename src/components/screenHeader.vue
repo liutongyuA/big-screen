@@ -25,7 +25,7 @@ export default {
     justify-content: center;
     >span{
       color: white;
-      font-size: 1.87rem;
+      font-size:pxToRem(40);
     }
 }
 </style>
