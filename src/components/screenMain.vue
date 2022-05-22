@@ -3,13 +3,16 @@
       <div class="section1">
         <chart1/>
       </div>
-      <div class="section2 border"></div>
+      <div class="section2">
+          <chart2/>
+      </div>
       <div class="section3 border"></div>
   </div>
 </template>
 
 <script>
 import chart1 from '@/components/chart1'
+import chart2 from '@/components/chart2'
 export default {
     name:'screenMain',
     data(){
@@ -17,7 +20,7 @@ export default {
         
         }
     },
-   components:{chart1}
+   components:{chart1,chart2}
 }
 </script>
 
