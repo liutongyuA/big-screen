@@ -17,16 +17,41 @@
     </div>
     <div class="section2">
       <chart title="发案趋势分析" :option="option3" height="363"></chart>
+      <chart title="案发时段分析" :option="option4" height="363"></chart>
     </div>
-    <div class="section3 border"></div>
-    <div class="section4 border"></div>
+    <div class="section3">
+      <chart title="往年战果数对比" height="365" isChart>
+        <table>
+        <thead>
+        <tr>
+          <th>年份</th><th>破案数</th><th>抓获嫌疑人</th><th>并串案件</th><th>现勘录入</th>
+          <th>视侦录入</th><th>合成案件数</th><th>合计</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>2015</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+        </tr>
+        <tr>
+          <td>2016</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+        </tr>
+        <tr>
+          <td>2017</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+        </tr>
+        </tbody>
+      </table>
+      </chart>
+    </div>
+    <div class="section4">
+      <chart6/>
+    </div>
     <div class="section5 border"></div>
   </div>
 </template>
 
 <script>
 // import chart1 from '@/components/chart1'
-// import chart2 from '@/components/chart2'
+import chart6 from '@/components/chart6'
 import * as echarts from "echarts";
 import chart from "@/components/chart";
 export default {
@@ -241,6 +266,63 @@ export default {
           lineStyle: { width: this.px(2) },
         })),
       },
+      option4: {
+        textStyle: {
+          fontSize: this.px(12),
+          color: "#79839E",
+        },
+        title: { show: false },
+        legend: {show:false        },
+        grid: {
+          x: this.px(20),
+          x2: this.px(20),
+          y: this.px(20),
+          y2: this.px(40),
+          containLabel: true,
+        },
+        xAxis: {
+          type: "category",
+          boundaryGap: false,
+          data: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24],
+          splitLine: { show: true, lineStyle: { color: "#073E78" } },
+          axisTick: { show: false },
+          axisLine: { show: false },
+        },
+        yAxis: {
+          type: "value",
+          splitLine: { lineStyle: { color: "#073E78" } },
+          axisLabel: {
+            formatter(val) {
+              return val * 100 + "%";
+            },
+          },
+        },
+        series: [
+          {
+            name: "故意伤人",
+            type: "line",
+            data: [
+              0.15, 0.13, 0.11, 0.13, 0.14, 0.15, 0.16, 0.18, 0.21, 0.19, 0.17,
+              0.16, 0.15,
+            ],
+            symbol: "circle",
+            symbolSize: this.px(12),
+            lineStyle: { width: this.px(2) },
+            areaStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                {
+                  offset: 0,
+                  color: "#414a9f",
+                },
+                {
+                  offset: 1,
+                  color: "#1b1d52",
+                },
+              ]),
+            },
+          },
+        ],
+      },
     };
   },
   methods: {
@@ -248,7 +330,7 @@ export default {
       return (n / 2420) * window.pageWidth;
     },
   },
-  components: { chart },
+  components: { chart ,chart6},
 };
 </script>
 
@@ -284,10 +366,12 @@ export default {
         -11px 0 0 -10px #0d4483, 0 11px 0 -10px #0d4483, 0 -11px 0 -10px #0d4483;
     }
   }
-  > .section1 {
+  > .section1 , .section2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+  >.section1{
     grid-area: box1;
   }
   > .section2 {
