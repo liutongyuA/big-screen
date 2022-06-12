@@ -7,11 +7,13 @@
           <chart2/>
       </div>
       <div class="section3 border"></div> -->
-        <div class="section1"> </div>
-        <div class="section2"></div>
-        <div class="section3"></div>
-        <div class="section4"></div>
-        <div class="section5"></div>
+        <div class="section1" >
+            <chart1/>  
+        </div>
+        <div class="section2 border"></div>
+        <div class="section3 border"></div>
+        <div class="section4 border"></div>
+        <div class="section5 border"></div>
   </div>
 </template>
 
@@ -39,8 +41,10 @@ export default {
     grid-template: 
     // ".box1  .box2 .box3" 1fr/14fr 168fr 20fr 318fr 20fr 168fr 14fr;
     "box1 box2 box4 box5" 755fr
-      "box3 box3 box4 box5" 363fr / 366fr 361fr 811fr 747fr;
-    .border{
+    "box3 box3 box4 box5" 363fr / 366fr 361fr 811fr 747fr;
+    grid-column-gap: pxToRem(28);
+    grid-row-gap: pxToRem(28);
+    .border {
         border: 1px solid #0764bc;
         border-radius: 4px;
         position: relative;
@@ -74,23 +78,18 @@ export default {
     // }
     > .section1 {
       grid-area: box1;
-      background: pink;
     }
     > .section2 {
       grid-area: box2;
-      background: lightgray;
     }
     > .section3 {
       grid-area: box3;
-      background: lightblue;
     }
     > .section4 {
       grid-area: box4;
-      background: lightcyan;
     }
     > .section5 {
       grid-area: box5;
-      background: lightyellow;
     }
 }
 </style>

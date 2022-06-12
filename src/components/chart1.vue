@@ -16,7 +16,8 @@ export default {
           fontSize: this.px(20),
         },
         xAxis: {
-          data: ["呼市分局", "呼市分局", "呼市分局", "呼市分局", "呼市分局", "呼市分局"],
+          data: ["呼市分局", "包头分局", "东胜分局", "赤峰分局", "乌海分局", "锡盟分局"],
+          // data: ["呼市分局", "包头分局", "鄂尔多斯分局", "赤峰分局", "呼市分局", "呼市分局"],
           axisTick: { show: false },
           axisLabel: {
             fontSize: this.px(20),
@@ -52,7 +53,6 @@ export default {
         },
         series: [
           {
-            name: "销量",
             type: "bar", //类型为柱状图
             data: [5, 20, 36, 10, 10, 20],
           },
