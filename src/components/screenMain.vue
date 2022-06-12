@@ -9,13 +9,14 @@
       <div class="section3 border"></div> -->
     <div class="section1">
       <chart title="案发派出所管辖统计" :option="option1"></chart>
-      <chart title="案件破获排名" :option="option2" height='423'>
-          <div class="legend">
-            <span class="first" /> 破案排名1 <span class="second" /> 破案排名2
-          </div>
+      <chart title="案件破获排名" :option="option2" height="423">
+        <div class="legend">
+          <span class="first" /> 破案排名1 <span class="second" /> 破案排名2
+        </div>
       </chart>
     </div>
     <div class="section2">
+      <chart title="发案趋势分析" :option="option3" height="363"></chart>
     </div>
     <div class="section3 border"></div>
     <div class="section4 border"></div>
@@ -160,6 +161,85 @@ export default {
             },
           },
         ],
+      },
+      option3: {
+        textStyle: {
+          fontSize: this.px(12),
+          color: "#79839E",
+        },
+        title: { show: false },
+        legend: {
+          bottom: this.px(10),
+          textStyle: { color: "white" },
+          itemWidth: this.px(30),
+          itemHeight: this.px(16),
+        },
+        grid: {
+          x: this.px(20),
+          x2: this.px(20),
+          y: this.px(20),
+          y2: this.px(70),
+          containLabel: true,
+        },
+        xAxis: {
+          type: "category",
+          boundaryGap: false,
+          data: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+          splitLine: { show: true, lineStyle: { color: "#073E78" } },
+          axisTick: { show: false },
+          axisLine: { show: false },
+        },
+        yAxis: {
+          type: "value",
+          splitLine: { lineStyle: { color: "#073E78" } },
+          axisLabel: {
+            formatter(val) {
+              return val * 100 + "%";
+            },
+          },
+        },
+        series: [
+          {
+            name: "抢劫",
+            type: "line",
+            data: [
+              0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09,
+            ].reverse(),
+          },
+          {
+            name: "醉驾",
+            type: "line",
+            data: [
+              0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1,
+            ].reverse(),
+          },
+          {
+            name: "盗窃",
+            type: "line",
+            data: [
+              0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11,
+            ].reverse(),
+          },
+          {
+            name: "故意杀人",
+            type: "line",
+            data: [
+              0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12,
+            ].reverse(),
+          },
+          {
+            name: "故意伤人",
+            type: "line",
+            data: [
+              0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.13,
+            ].reverse(),
+          },
+        ].map((obj) => ({
+          ...obj,
+          symbol: "circle",
+          symbolSize: this.px(12),
+          lineStyle: { width: this.px(2) },
+        })),
       },
     };
   },
