@@ -37,6 +37,7 @@ export default {
     @return $x / 2420 * 100rem
 }
 .screenMain{
+    margin-top: pxToRem(20);
     flex:1;
     display: grid;
     grid-template: 

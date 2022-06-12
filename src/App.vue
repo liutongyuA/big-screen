@@ -20,6 +20,9 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  background-color: #091724;
+}
 #app{
     background-image: url('./assets/background.png');
     background-size: cover;

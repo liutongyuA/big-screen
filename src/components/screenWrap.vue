@@ -2,6 +2,8 @@
   <div class="screenWrap" ref="screenWrap">
     <screenHeader></screenHeader>
     <screenMain></screenMain>
+    <screenFooter></screenFooter>
+    
   </div>
 </template>
 
@@ -9,10 +11,11 @@
 import {pageWidth,pageHeight,deviceHeight}  from '../util'
 import screenHeader from '@/components/screenHeader' 
 import screenMain from '@/components/screenMain'
+import screenFooter from '@/components/screenFooter'
 export default {
   name: 'ScreenWrap',
   components:{
-    screenHeader,screenMain
+    screenHeader,screenMain,screenFooter
   },
   mounted(){
     this.$refs.screenWrap.style.width = pageWidth +'px' 
