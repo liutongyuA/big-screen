@@ -9,6 +9,7 @@
       <div class="section3 border"></div> -->
         <div class="section1" >
             <chart1/>  
+            <chart2/>
         </div>
         <div class="section2 border"></div>
         <div class="section3 border"></div>
