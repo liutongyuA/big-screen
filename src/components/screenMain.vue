@@ -78,6 +78,9 @@ export default {
     //     grid-area: box3;
     // }
     > .section1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       grid-area: box1;
     }
     > .section2 {

@@ -2,6 +2,9 @@
   <div class="ajph border">
     <div class="title">案件破获排名</div>
     <div class="echart" ref="echart2"></div>
+    <div class="legend">
+      <span class="first" /> 破案排名1 <span class="second" /> 破案排名2
+    </div>
   </div>
 </template>
 
@@ -49,11 +52,39 @@ export default {
             name: "2011年",
             type: "bar",
             data: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            itemStyle: {
+              normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                  {
+                    offset: 0,
+                    color: "#2034f9",
+                  },
+                  {
+                    offset: 1,
+                    color: "#04a1ff",
+                  },
+                ]),
+              },
+            },
           },
           {
             name: "2012年",
             type: "bar",
             data: [2, 3, 4, 5, 6, 7, 8, 9, 10],
+            itemStyle: {
+              normal: {
+                color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                  {
+                    offset: 0,
+                    color: "#b92ae8",
+                  },
+                  {
+                    offset: 1,
+                    color: "#6773e7",
+                  },
+                ]),
+              },
+            },
           },
         ],
       },
@@ -79,13 +110,14 @@ export default {
   @return $x / 2420 * 100rem;
 }
 .ajph {
-  height: pxToRem(315);
+  height: pxToRem(423);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  color: white;
   > .title {
-    color: white;
-    border-bottom: 1px solid #0a5299;
-    justify-content: center;
+    border: 1px solid #0a5299;
+    border-top: none;
     display: flex;
     justify-content: center;
     border-bottom-right-radius: 4px;
@@ -98,6 +130,27 @@ export default {
   > .echart {
     flex-grow: 1;
     width: 100%;
+  }
+  .legend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0 pxToRem(20) pxToRem(10);
+    > .first,
+    > .second {
+      display: inline-block;
+      width: pxToRem(18);
+      height: pxToRem(12);
+      background: red;
+      margin: 0 pxToRem(10);
+    }
+    .first {
+      background: linear-gradient(90deg, #2034f9 0%, #04a1ff 100%);
+    }
+    .second {
+      background: linear-gradient(90deg, #b92ae8 0%, #6773e7 100%);
+    }
   }
 }
 </style>

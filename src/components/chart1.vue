@@ -16,7 +16,14 @@ export default {
           fontSize: this.px(20),
         },
         xAxis: {
-          data: ["呼市分局", "包头分局", "东胜分局", "赤峰分局", "乌海分局", "锡盟分局"],
+          data: [
+            "呼市分局",
+            "包头分局",
+            "东胜分局",
+            "赤峰分局",
+            "乌海分局",
+            "锡盟分局",
+          ],
           // data: ["呼市分局", "包头分局", "鄂尔多斯分局", "赤峰分局", "呼市分局", "呼市分局"],
           axisTick: { show: false },
           axisLabel: {
@@ -76,17 +83,19 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@function pxToRem($x){
-    @return $x / 2420 * 100rem
+@function pxToRem($x) {
+  @return $x / 2420 * 100rem;
 }
 .gxtj {
   height: pxToRem(315);
   display: flex;
   flex-direction: column;
-  >.title {
+  align-items: center;
+  > .title {
     color: white;
-    border-bottom: 1px solid #0a5299;
-    justify-content: center;
+    // border-bottom: 1px solid #0a5299;
+    border: 1px solid #0a5299;
+    border-top: none;
     display: flex;
     justify-content: center;
     border-bottom-right-radius: 4px;
@@ -96,7 +105,7 @@ export default {
     line-height: pxToRem(24);
     text-shadow: 0 0 pxToRem(3) white;
   }
-  >.echart {
+  > .echart {
     flex-grow: 1;
     width: 100%;
     height: 400px;
