@@ -73,7 +73,7 @@ export default {
   }
   //chart3折线
     .legend {
-        color: white;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: flex-end;

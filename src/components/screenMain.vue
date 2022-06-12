@@ -50,10 +50,9 @@
 </template>
 
 <script>
-// import chart1 from '@/components/chart1'
-import chart6 from '@/components/chart6'
 import * as echarts from "echarts";
 import chart from "@/components/chart";
+import chart6 from '@/components/chart6'
 export default {
   name: "screenMain",
   data() {
