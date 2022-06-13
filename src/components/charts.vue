@@ -1,121 +1,73 @@
 <template>
-    <div class="dt border" ref="echart2">
-        <div class="title">全市犯罪人员籍贯发布地</div>
+  <div class="nld">
+    <div class="chartWrap">
+      <div ref="chart" class="chart"></div>
+      <div class="text">{{text}}</div>
+    </div>
+    <div class="legend" v-if="category === 'sex'">
+      <span class="male" />男 
+      <span class="female" />女
+    </div>
+    <div class="legend" v-if="category === 'age'">
+        <span style='background:#856BED' />10-20
+        <span style='background:#F46064' />20-30
+        <span style='background:#F38E1C' />30-40
+        <span style='background:#1CDB7C' />40-50
+        <span style='background:#33A4FA' />50-60
+    </div>
   </div>
 </template>
 
 <script>
 import * as echarts from "echarts";
-import china from '../geo/china.json';
 export default {
- data() {
+  data() {
     return {
-      option: {
-        textStyle: {
-          fontSize: this.px(12),
-          color: "#79839E",
-        },
-        title: { show: false },
-        legend: { show: false },
-        grid: {
-          x: this.px(20),
-          y: this.px(20),
-          x2: this.px(20),
-          y2: this.px(20),
-          containLabel: true,
-        },
-        xAxis: { show: false },
-        yAxis: { show: false },
-        series: [
-          {
-            type: "map",
-            mapType: "CN", // 自定义扩展图表类型
-            data: [{ name: "甘肃省", value: 1 }],
-            label: { show: false, color: "white" },
-            itemStyle: {
-              areaColor: "#010D3D",
-              color: "#15B8FD",
-              borderColor: "#01A7F7",
-              emphasis: {
-                label: { color: "white" },
-                areaColor: "#5470C6",
-              },
-            },
-          },
-          {
-            type: "map",
-            mapType: "CN", // 自定义扩展图表类型
-            data: [{ name: "四川省", value: 100 }],
-            itemStyle: {
-              areaColor: "#010D3D",
-              color: "#06E1EE",
-              borderColor: "yellow",
-              emphasis: {
-                label: { color: "white" },
-                areaColor: "#5470C6",
-              },
-            },
-          },
-          {
-            type: "map",
-            mapType: "CN", // 自定义扩展图表类型
-            data: [{ name: "青海省", value: 100 }],
-            itemStyle: {
-              areaColor: "#010D3D",
-              color: "#BB31F7",
-              borderColor: "#01A7F7",
-              emphasis: {
-                label: { color: "white" },
-                areaColor: "#5470C6",
-              },
-            },
-          },
-        ],
-      },
-    }
+
+    };
   },
+  props:["option",'text','category'],
   mounted() {
     this.initEcharts();
   },
   methods: {
     initEcharts() {
-      const mycharts = echarts.init(this.$refs.echart2);
-      echarts.registerMap('CN', china);
+      const mycharts = echarts.init(this.$refs.chart);
       mycharts.setOption(this.option);
     },
-    px(n) {
-      return (n / 2420) * window.pageWidth;
-    },
   },
-}
+};
 </script>
 
 <style lang="scss">
-@function pxToRem($x){
-    @return $x / 2420 * 100rem
+@function pxToRem($x) {
+  @return $x / 2420 * 100rem;
 }
-.dt{
-    height: pxToRem(700);
-      display: flex;
+.nld {
+  flex: 1;
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  > .title {
-    color: white;
-    border: 1px solid #0a5299;
-    border-top: none;
+  .chartWrap {
+    flex: 1;
     display: flex;
-    justify-content: center;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    font-size: pxToRem(22);
-    padding: pxToRem(10) pxToRem(28);
-    line-height: pxToRem(24);
-    text-shadow: 0 0 pxToRem(3) white;
+    position: relative;
+    .chart {
+      flex: 1;
+    }
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #33a4fa; font-size: pxToRem(40); text-shadow: 0 0 pxToRem(20) #33a4fa;font-weight: bold;
+    }
   }
-  > .echart {
-    flex-grow: 1;
-    width: 100%;
-    height: 400px;
-  }
+  .legend {height: pxToRem(40); display: flex; align-items: center;
+           justify-content: center; flex-wrap: wrap;
+          > span {display: inline-block; width: pxToRem(16); height: pxToRem(10);
+            border-radius: pxToRem(2); margin: 0 pxToRem(10);}
+          .male {background: #33a4fa;}
+          .female {background: #8d70f8;}
+          }
 }
 </style>
