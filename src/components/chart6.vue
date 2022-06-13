@@ -78,7 +78,6 @@ export default {
   },
   mounted() {
     this.initEcharts();
-    console.log(this.$refs.echart6);
   },
   methods: {
     initEcharts() {

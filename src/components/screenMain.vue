@@ -126,7 +126,7 @@ export default {
           axisLabel: { fontSize: this.px(20) },
         },
         grid: {
-          x: this.px(40),
+          x: this.px(50),
           y: this.px(40),
           x2: this.px(40),
           y2: this.px(55),
@@ -225,7 +225,7 @@ export default {
         },
         grid: {
           x: this.px(20),
-          x2: this.px(20),
+          x2: this.px(40),
           y: this.px(20),
           y2: this.px(70),
           containLabel: true,
@@ -514,6 +514,14 @@ export default {
         ],
       },
     };
+  },
+  mounted(){
+    // 添加动态数据
+    setInterval(()=>{
+      this.option1.series[0].data =[Math.random() * 100, Math.random() * 100,Math.random() * 100, Math.random() * 100, Math.random() * 100, Math.random() * 100]
+      this.option2.series[0].data=[Math.random() * 10, Math.random() * 10,Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10, Math.random() * 10]
+      this.option4.series[0].data=[Math.random() / 100, Math.random() / 100,Math.random() / 100, Math.random() / 100, Math.random() / 100, Math.random() / 100, Math.random() / 100, Math.random() / 100, Math.random() / 100,Math.random() / 100, Math.random() / 100, Math.random() / 100, Math.random() / 100]
+    },1000)
   },
   methods: {
     px(n) {

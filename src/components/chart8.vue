@@ -10,7 +10,6 @@ import * as echarts from "echarts";
 export default {
     props:['option','title','row'],
   mounted() {
-    console.log(this.row);
       this.initEcharts();
   },
   methods: {

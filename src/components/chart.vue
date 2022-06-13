@@ -11,6 +11,7 @@ import * as echarts from "echarts";
 export default {
   data() {
     return {
+      mycharts:'',
         heightRem:this.height / 2420 * 100 +'rem'
     };
   },
@@ -31,12 +32,17 @@ export default {
   mounted() {
     if(this.$refs.echart){
     this.initEcharts();
+    //新加的添加动态数据
+      setInterval(()=>{
+      this.mycharts.setOption(this.option);
+    },1000)
     }
   },
   methods: {
     initEcharts() {
-      const mycharts = echarts.init(this.$refs.echart);
-      mycharts.setOption(this.option);
+      // const mycharts = echarts.init(this.$refs.echart);
+       this.mycharts = echarts.init(this.$refs.echart);
+       this.mycharts.setOption(this.option);
     },
 
   },
