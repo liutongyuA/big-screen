@@ -29,7 +29,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>2015</td>
+              <td>2019</td>
               <td>2</td>
               <td>3</td>
               <td>4</td>
@@ -39,7 +39,7 @@
               <td>8</td>
             </tr>
             <tr>
-              <td>2016</td>
+              <td>2020</td>
               <td>2</td>
               <td>3</td>
               <td>4</td>
@@ -49,7 +49,7 @@
               <td>8</td>
             </tr>
             <tr>
-              <td>2017</td>
+              <td>2021</td>
               <td>2</td>
               <td>3</td>
               <td>4</td>
@@ -67,19 +67,9 @@
       <chart7 />
     </div>
     <div class="section5">
-      <!-- <chart8/> -->
       <chart8 :option="option5" title="案发类型统计" row="row1"></chart8>
       <chart8 :option="option6" title="案发街道统计" row="row2"></chart8>
       <chart8 :option="option7" title="作案手段分析" row="row3"></chart8>
-      <!-- <chart title="案发类型统计"/> -->
-      <!-- <div class="border row2 案发街道">
-            <h2>案发街道统计</h2>
-            <div class="charts">
-            </div>
-          </div>
-          <div class="border row3 作案手段">
-            <h2>作案手段分析</h2>
-          </div> -->
     </div>
   </div>
 </template>
@@ -94,7 +84,6 @@ export default {
   name: "screenMain",
   data() {
     return {
-
       option1: {
         textStyle: {
           color: "#4B5273",
@@ -185,7 +174,6 @@ export default {
         },
         series: [
           {
-            name: "2011年",
             type: "bar",
             data: [1, 2, 3, 4, 5, 6, 7, 8, 9],
             itemStyle: {
@@ -204,7 +192,6 @@ export default {
             },
           },
           {
-            name: "2012年",
             type: "bar",
             data: [2, 3, 4, 5, 6, 7, 8, 9, 10],
             itemStyle: {
@@ -246,7 +233,7 @@ export default {
         xAxis: {
           type: "category",
           boundaryGap: false,
-          data: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018],
+          data: [2014, 2015, 2016, 2017, 2018,2019,2020,2021,2022],
           splitLine: { show: true, lineStyle: { color: "#073E78" } },
           axisTick: { show: false },
           axisLine: { show: false },
@@ -435,17 +422,19 @@ export default {
           itemHeight: this.px(10),
           formatter(name) {
             const value =
-               [
-        { value: 0.08, name: "东岗路" },
-        { value: 0.06, name: "段家滩" },
-        { value: 0.11, name: "雁北" },
-        { value: 0.09, name: "五泉山" },
-        { value: 0.12, name: "中山路" },
-        { value: 0.06, name: "庆阳路" },
-        { value: 0.08, name: "武都路" },
-        { value: 0.08, name: "酒泉路" },
-        { value: 0.08, name: "天水路" },
-      ].find((i) => i.name === name)?.value * 100 + "%";
+              [
+                { value: 0.08, name: "东岗路" },
+                { value: 0.06, name: "段家滩" },
+                { value: 0.11, name: "雁北" },
+                { value: 0.09, name: "五泉山" },
+                { value: 0.12, name: "中山路" },
+                { value: 0.06, name: "庆阳路" },
+                { value: 0.08, name: "武都路" },
+                { value: 0.08, name: "酒泉路" },
+                { value: 0.08, name: "天水路" },
+              ].find((i) => i.name === name)?.value *
+                100 +
+              "%";
             return name + " " + value;
           },
         },
@@ -457,16 +446,16 @@ export default {
             label: { show: false },
             labelLine: { show: false },
             data: [
-        { value: 0.08, name: "东岗路" },
-        { value: 0.06, name: "段家滩" },
-        { value: 0.11, name: "雁北" },
-        { value: 0.09, name: "五泉山" },
-        { value: 0.12, name: "中山路" },
-        { value: 0.06, name: "庆阳路" },
-        { value: 0.08, name: "武都路" },
-        { value: 0.08, name: "酒泉路" },
-        { value: 0.08, name: "天水路" },
-      ],
+              { value: 0.08, name: "东岗路" },
+              { value: 0.06, name: "段家滩" },
+              { value: 0.11, name: "雁北" },
+              { value: 0.09, name: "五泉山" },
+              { value: 0.12, name: "中山路" },
+              { value: 0.06, name: "庆阳路" },
+              { value: 0.08, name: "武都路" },
+              { value: 0.08, name: "酒泉路" },
+              { value: 0.08, name: "天水路" },
+            ],
             emphasis: {
               itemStyle: {
                 shadowBlur: 10,
@@ -477,59 +466,53 @@ export default {
           },
         ],
       },
-      option7:{
-        	  textStyle: {
-    fontSize: this.px(12),
-    color: '#79839E'
-  },
-  //  grid: {
-  //         x: this.px(0),
-  //         y: this.px(0),
-  //         x2: this.px(0),
-  //         y2: this.px(0),
-  //         containLabel: true,
-  //       },
-	color: ['#F46064', '#F38E1C', '#1CDB7C', '#8D70F8', '#33A4FA'],
-      xAxis: {show: false},
-      yAxis: {show: false},
-      // legend: {show: false},
+      option7: {
+        textStyle: {
+          fontSize: this.px(12),
+          color: "#79839E",
+        },
+        color: ["#F46064", "#F38E1C", "#1CDB7C", "#8D70F8", "#33A4FA"],
+        xAxis: { show: false },
+        yAxis: { show: false },
         legend: {
           textStyle: {
-    fontSize: this.px(12),
-    color: 'white'
-  },
-    top: 'bottom'
-  },
-      series: [
-        {
-          startAngle: -20,
-          type: 'pie',
-          radius: ['25%', '60%'],
-          avoidLabelOverlap: false,
-          label: {
-            show: true, position: 'outside', textStyle: {color: 'white', fontSize: this.px(20)},
-            distanceToLabelLine: 0,
-            formatter(options) {
-              return options.value * 100 + '%';
-            }
+            fontSize: this.px(12),
+            color: "white",
           },
-          labelLine: {show: true, length: 0},
-          roseType: 'area',
-          itemStyle: {
-            shadowBlur: this.px(200),
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          top: "bottom",
+        },
+        series: [
+          {
+            startAngle: -20,
+            type: "pie",
+            radius: ["25%", "60%"],
+            avoidLabelOverlap: false,
+            label: {
+              show: true,
+              position: "outside",
+              textStyle: { color: "white", fontSize: this.px(20) },
+              distanceToLabelLine: 0,
+              formatter(options) {
+                return options.value * 100 + "%";
+              },
+            },
+            labelLine: { show: true, length: 0 },
+            roseType: "area",
+            itemStyle: {
+              shadowBlur: this.px(200),
+              shadowColor: "rgba(0, 0, 0, 0.5)",
+            },
+            data: [
+              { value: 0.34, name: "盗窃" },
+              { value: 0.19, name: "抢夺" },
+              { value: 0.11, name: "扒窃" },
+              { value: 0.2, name: "诈骗" },
+              { value: 0.04, name: "杀人" },
+              { value: 0.1, name: "纵火" },
+            ],
           },
-          data: [
-            {value: 0.34, name: '盗窃'},
-            {value: 0.19, name: '抢夺'},
-            {value: 0.11, name: '扒窃'},
-            {value: 0.20, name: '诈骗'},
-            {value: 0.04, name: '杀人'},
-            {value: 0.10, name: '纵火'},
-          ]
-        }
-      ]
-      }
+        ],
+      },
     };
   },
   methods: {

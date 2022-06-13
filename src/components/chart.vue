@@ -14,7 +14,6 @@ export default {
         heightRem:this.height / 2420 * 100 +'rem'
     };
   },
-  // props:['title','option','isChart','height'],
   props:{
     title:{
       type:String

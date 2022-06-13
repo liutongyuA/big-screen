@@ -1,5 +1,6 @@
 <template>
   <div class="nld">
+    <!-- chart7使用 -->
     <div class="chartWrap">
       <div ref="chart" class="chart"></div>
       <div class="text">{{text}}</div>
