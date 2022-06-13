@@ -544,6 +544,7 @@ export default {
     background-color: #051218;
     opacity: 0.7;
     &::before {
+      pointer-events: none;
       content: "";
       position: absolute;
       left: 0;
