@@ -1,24 +1,7 @@
-# big-screen
+# big-screen 可视化大屏
 
-## Project setup
-```
-npm install
-```
+这是一个公安作战系统，主要记录案件相关信息，使用`vue`结合`echarts`做的大屏，可以兼容不同屏幕，并且支持实时数据更新。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### 主要技术：
+rem适配不同屏幕、封装chart组件共用、echarts制作不同图表及地图
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
